@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .div_framwork {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .div_framwork_top {
+            background: #36C;
+            height: 100px;
+        }
+
+        .div_framwork_left {
+            background: red;
+            position: absolute;
+            left: 0px;
+            width: 70px;
+            top: 100px;
+            bottom: 0px;
+            overflow: auto;
+        }
+
+        .div_framwork_right {
+            background: gray;
+            position: absolute;
+            width: 220px;
+            right: 0px;
+            top: 100px;
+            bottom: 0px;
+            overflow: auto;
+        }
+
+        .div_framwork_main {
+            
+            position: absolute;
+            left: 70px;
+            right: 220px;
+            top: 100px;
+            bottom: 0px;
+            overflow: auto;
+        }
+        .div_SVG {
+            border: 1px solid black;
+            background: url("plugin/svg.js/grid.png") #fff;
+            /*border-radius: 10px;*/
+        }
+    </style>
+    <script src="plugin/jquery/jquery-2.2.4.min.js"></script>
+    <script src="plugin/svg.js/svg.min.js"></script>
+    <script src="plugin/svg.resize.js/svg.resize.min.js"></script>
+    <script src="plugin/svg.draggable.js/svg.draggable.min.js"></script>
+    <link href="plugin/svg.select.js/svg.select.css" rel="stylesheet" />
+    <script src="plugin/svg.select.js/svg.select.min.js"></script>
+    <script src="plugin/svg.draw.js/svg.draw.js"></script>
+    <script src="plugin/svg.intersections.js/svg.intersections.js"></script>
+       <script src="plugin/WFDesigner/WFDesigner.js"></script><script>
+        $(function () {
+            WFDrawer = new WFDesigner('WFDesignerDiv');
+        });
+    </script>
+
+</head>
+<body>
+    <div class="div_framwork div_framwork_top">top</div>
+    <div class="div_framwork div_framwork_left">
+        <button onclick="WFDrawer.SetSVGSize(600,500);">B</button>
+        <button onclick="WFDrawer.AddNode(WFDNodeClass.Begin);"><</button>
+        <button onclick="WFDrawer.AddNode(WFDNodeClass.End);">></button>
+        <button onclick="WFDrawer.AddNode(WFDNodeClass.Active);">A</button>
+        <button onclick="WFDrawer.AddNode(WFDNodeClass.Judge);">?</button>
+        <button onclick="WFDrawer.AddNode(WFDNodeClass.Children);">C</button>
+        <button onclick="WFDrawer.AddLine();">-</button><br/>
+        <button onclick="WFDrawer.RemoveNode();">RD</button>
+        <button onclick="WFDrawer.RemoveLine();">RL</button>
+        <button onclick="WFDrawer.RemoveObj();">RA</button>
+
+    </div>
+    <div class="div_framwork div_framwork_right">right</div>
+    <div class="div_framwork div_framwork_main"><div class="div_SVG" id="WFDesignerDiv" style="width:500px; height:300px;"></div></div>
+</body>
+</html>
